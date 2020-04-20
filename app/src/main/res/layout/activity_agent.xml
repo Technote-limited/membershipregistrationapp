@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    tools:context=".AgentActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f38521">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#f38521"
+            app:title="@string/app_name"
+            app:titleTextColor="#fff"
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+
+   <!-- <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/appBarLayout"
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:padding="4dp" />-->
+    <androidx.cardview.widget.CardView
+        android:layout_below="@+id/appBarLayout"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        app:cardCornerRadius="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_anchorGravity="center_horizontal"
+        android:clickable="true"
+        android:id="@+id/card_view_recruit">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:padding="2dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/candidates"/>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recruit Members"
+                android:textSize="15sp"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:layout_below="@+id/imageView"
+                />
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_toRightOf="@+id/card_view_recruit"
+        android:layout_below="@+id/appBarLayout"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        app:cardCornerRadius="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_anchorGravity="center_horizontal"
+        android:clickable="true"
+        android:id="@+id/card_view_search">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp">
+
+             <ImageView
+                android:id="@+id/imageViewRecruit"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:padding="2dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/searchh"/>
+
+            <TextView
+                android:id="@+id/textViewRecruit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search Members"
+                android:textSize="15sp"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:layout_below="@+id/imageViewRecruit" />
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_below="@+id/card_view_recruit"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        app:cardCornerRadius="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_anchorGravity="center_horizontal"
+        android:clickable="true"
+        android:id="@+id/card_view_progress">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/imageViewProgress"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:padding="2dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/myprogress"/>
+
+            <TextView
+                android:id="@+id/textViewProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Progress"
+                android:textSize="15sp"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:layout_below="@+id/imageViewProgress" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_below="@+id/card_view_search"
+        android:layout_toRightOf="@+id/card_view_progress"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        app:cardCornerRadius="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_anchorGravity="center_horizontal"
+        android:clickable="true"
+        android:id="@+id/card_view_manage_cards">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/imageViewManageCards"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:padding="2dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/membership"/>
+
+            <TextView
+                android:id="@+id/textViewManageCards"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manage Cards"
+                android:textSize="15sp"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:layout_below="@+id/imageViewManageCards" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_below="@+id/card_view_progress"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        app:cardCornerRadius="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_anchorGravity="center_horizontal"
+        android:clickable="true"
+        android:id="@+id/card_view_order_cards">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/imageViewOrderCards"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:padding="2dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/order"/>
+
+            <TextView
+                android:id="@+id/textViewOrderCards"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order Cards"
+                android:textSize="15sp"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:layout_below="@+id/imageViewOrderCards" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_below="@+id/card_view_manage_cards"
+        android:layout_toRightOf="@+id/card_view_order_cards"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        app:cardCornerRadius="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_anchorGravity="center_horizontal"
+        android:clickable="true"
+        android:id="@+id/card_view_inventory">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/imageViewInventory"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:padding="2dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/inventory"/>
+
+            <TextView
+                android:id="@+id/textViewInventory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Inventory"
+                android:textSize="15sp"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:layout_below="@+id/imageViewInventory" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

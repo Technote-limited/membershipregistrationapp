@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#333366"
+    tools:context=".SearchMembersActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f38521">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:navigationIcon="@drawable/ic_arrow_back_white"
+            app:title="@string/app_name"
+            app:titleTextColor="#fff"
+
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ImageView
+        android:id="@+id/qrCodeImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="15dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/codescanner"
+        android:layout_below="@+id/appBarLayout"/>
+<androidx.cardview.widget.CardView
+    android:id="@+id/searchByQRCard"
+    android:layout_width="wrap_content"
+    android:layout_height="50dp"
+    android:layout_marginTop="15dp"
+    android:elevation="2dp"
+    app:cardCornerRadius="15dp"
+    android:layout_centerInParent="true"
+    android:layout_below="@+id/qrCodeImage"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/TextViewSearchByQR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan card QR code"
+        android:layout_centerHorizontal="true"
+        android:textSize="23sp"
+        android:textColor="#333366"
+        android:textStyle="bold"
+        android:padding="2dp"
+        android:layout_margin="5dp"/>
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
+
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        style="@style/MaterialSearchBarLight"
+        android:layout_below="@+id/searchByQRCard"
+        app:mt_speechMode="true"
+        app:mt_hint="Search by Member Number"
+        app:mt_hintColor="#333366"
+        app:mt_maxSuggestionsCount="10"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:id="@+id/searchBar"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#fff"
+        android:layout_marginTop="70dp"/>
+</RelativeLayout>

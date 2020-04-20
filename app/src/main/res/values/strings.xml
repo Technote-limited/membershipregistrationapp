@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Member Registration System</string>
+
+    <string name="barcode_error_format">"Error reading barcode: %1$s"</string>
+</resources>
