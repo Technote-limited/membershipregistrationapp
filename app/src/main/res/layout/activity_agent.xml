@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -22,14 +23,14 @@
             />
     </com.google.android.material.appbar.AppBarLayout>
 
-   <!-- <androidx.recyclerview.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@+id/appBarLayout"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/darker_gray"
-        android:padding="4dp" />-->
-    <androidx.cardview.widget.CardView
+        android:padding="4dp" />
+  <!--  <androidx.cardview.widget.CardView
         android:layout_below="@+id/appBarLayout"
         android:layout_width="180dp"
         android:layout_height="180dp"
@@ -262,6 +263,6 @@
 
         </RelativeLayout>
 
-    </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>-->
 
 </RelativeLayout>

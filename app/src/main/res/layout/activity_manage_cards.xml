@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ManageCardsActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f38521">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:navigationIcon="@drawable/ic_arrow_back_white"
+            app:title="Manage Cards"
+            app:titleTextColor="#fff"
+
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <TextView
+            android:id="@+id/textviewEnterMemberNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:text="@string/textview_enter_member_number"
+            android:layout_marginRight="5dp"
+            android:textSize="18sp"
+            android:textColor="#000000"/>
+
+        <EditText
+            android:id="@+id/editTextCard_member_number"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginRight="5dp"
+            android:layout_toEndOf="@id/textviewEnterMemberNo"
+            android:layout_toRightOf="@+id/textviewEnterMemberNo"
+            android:background="@drawable/edit_text_border"
+            />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+        <ImageView
+            android:id="@+id/imageLost"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/lost"
+            />
+
+        <Button
+            android:id="@+id/button_lost_card"
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true"
+            android:text="lost Card"
+            android:textColor="#fff"
+            android:layout_height="50dp"
+            android:layout_toEndOf="@id/imageLost"
+            android:layout_toRightOf="@+id/imageLost"
+            android:background="@drawable/button_background" />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+        <ImageView
+            android:id="@+id/imageStolen"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/stolen"
+            />
+
+        <Button
+            android:id="@+id/button_stolen_card"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:text="Stolen Card"
+            android:textColor="#fff"
+            android:layout_toEndOf="@id/imageStolen"
+            android:layout_toRightOf="@+id/imageStolen"
+            android:background="@drawable/button_background" />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+        <ImageView
+            tools:ignore="ContentDescription"
+            android:id="@+id/imageWornOut"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/wornout"
+            />
+
+        <Button
+            android:id="@+id/button_worn_out_card"
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_height="50dp"
+            android:text="Worn Out Card"
+            android:textColor="#fff"
+            android:layout_toEndOf="@id/imageWornOut"
+            android:layout_toRightOf="@+id/imageWornOut"
+            android:background="@drawable/button_background" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

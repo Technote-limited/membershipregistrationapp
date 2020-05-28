@@ -24,15 +24,19 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dev.materialspinner.MaterialSpinner;
 import com.example.dhl.barcode.BarCodeCaptureActivity;
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
@@ -54,7 +58,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
     SQLiteOpenHelper openHelper;
     SQLiteDatabase db;
@@ -66,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
     EditText idPassport, member_surname, firstName, middleName, phoneNumber, d_o_b, member_constituency, member_ward, member_county;
     TextView Login, QrCodeScanner, membershipNo;
     DatePickerDialog datePickerDialog;
+    MaterialSpinner countySpinner;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     static final int BARCODE_READER_REQUEST_CODE = 1;
     String path="";
@@ -161,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
             String d_o_b1=d_o_b.getText().toString();
             String maleRadioButton1=maleRadioButton.getText().toString();
             String femaleRadioButton1=femaleRadioButton.getText().toString();
-            String member_county1=member_county.getText().toString();
+              String member_county1=member_county.getText().toString();
             String member_constituency1=member_constituency.getText().toString();
             String member_ward1=member_ward.getText().toString();
             String membershipNo1=membershipNo.getText().toString();
@@ -253,9 +258,17 @@ public class MainActivity extends AppCompatActivity {
         middleName.addTextChangedListener(registerTextWatcher);
         phoneNumber.addTextChangedListener(registerTextWatcher);
         d_o_b.addTextChangedListener(registerTextWatcher);
-        member_county.addTextChangedListener(registerTextWatcher);
+        //member_county.addTextChangedListener(registerTextWatcher);
         member_constituency.addTextChangedListener(registerTextWatcher);
         member_ward.addTextChangedListener(registerTextWatcher);
+
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.county_arrays, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        countySpinner.setAdapter(adapter);
+        countySpinner.setItemSelectedListener(this);
 
     }
 
@@ -301,7 +314,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void initializeViews() {
+       public void initializeViews() {
         openHelper = new DatabaseHelper(this);
         profile_image = findViewById(R.id.picture_icon);
         register = findViewById(R.id.btnRegister);
@@ -315,7 +328,8 @@ public class MainActivity extends AppCompatActivity {
         genderRadioGroup = findViewById(R.id.radio_group);
         maleRadioButton = findViewById(R.id.radio_male);
         femaleRadioButton = findViewById(R.id.radio_female);
-        member_county = findViewById(R.id.county);
+        //member_county = findViewById(R.id.county);
+           countySpinner = findViewById(R.id.material_spinner);
         member_constituency = findViewById(R.id.constituency);
         member_ward = findViewById(R.id.ward);
         scannIcon = findViewById(R.id.scan_icon);
@@ -476,6 +490,16 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return count;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
 

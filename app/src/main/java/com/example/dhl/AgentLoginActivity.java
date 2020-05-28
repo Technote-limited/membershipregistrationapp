@@ -27,6 +27,7 @@ public class AgentLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agent_login);
         initialiseViews();
+        mAuth = FirebaseAuth.getInstance();
 
         mAuthListener = firebaseAuth -> {
             FirebaseUser mFirebaseUser = mAuth.getCurrentUser();
@@ -55,16 +56,13 @@ public class AgentLoginActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Fields are required",Toast.LENGTH_SHORT).show();
             }
             else if(!(email.isEmpty()  && password.isEmpty())){
-               mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(AgentLoginActivity.this, new OnCompleteListener<AuthResult>() {
-                   @Override
-                   public void onComplete(@NonNull Task<AuthResult> task) {
-                     if(!task.isSuccessful()) {
-                         Toast.makeText(getApplicationContext(),"Login error please try again",Toast.LENGTH_SHORT).show();
-                     }
-                     else {
-                         startActivity(new Intent(AgentLoginActivity.this,AgentActivity.class));
-                     }
-                   }
+               mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(AgentLoginActivity.this, task -> {
+                 if(!task.isSuccessful()) {
+                     Toast.makeText(getApplicationContext(),"Login error please try again",Toast.LENGTH_SHORT).show();
+                 }
+                 else {
+                     startActivity(new Intent(AgentLoginActivity.this,AgentActivity.class));
+                 }
                });
             }
             else {

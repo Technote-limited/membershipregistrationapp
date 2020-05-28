@@ -35,7 +35,7 @@ public class AgentRegister extends AppCompatActivity {
         tvAgentLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(AgentRegister.this,AgentActivity.class);
+                Intent intent=new Intent(AgentRegister.this,AgentLoginActivity.class);
                 startActivity(intent);
             }
         });

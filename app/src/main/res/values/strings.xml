@@ -2,4 +2,66 @@
     <string name="app_name">Member Registration System</string>
 
     <string name="barcode_error_format">"Error reading barcode: %1$s"</string>
+    <string name="textview_enter_member_number">Enter Member Number:</string>
+
+    <string-array name="Card_Type">
+        <item>Youth League</item>
+        <item>Women League</item>
+        <item>Disability League</item>
+    </string-array>
+
+    <string name="county_prompt">Choose a county</string>
+
+    <string-array name="county_arrays">
+        <item>Mombasa</item>
+        <item>Kwale</item>
+        <item>Kilifi</item>
+        <item>Tana River</item>
+        <item>Lamu</item>
+        <item>Taita Taveta</item>
+        <item>Garissa North</item>
+        <item>Wajir North</item>
+        <item>Mandera North</item>
+        <item>Marsabit</item>
+        <item>Isiolo</item>
+        <item>Meru</item>
+        <item>Tharaka Nithi</item>
+        <item>Embu</item>
+        <item>Kitui</item>
+        <item>Machakos</item>
+        <item>Makueni</item>
+        <item>Nyandarua</item>
+        <item>Nyeri</item>
+        <item>Kirinyaga</item>
+        <item>Muranga</item>
+        <item>Kiambu</item>
+        <item>Turkana</item>
+        <item>West Pokot</item>
+        <item>Samburu</item>
+        <item>Uasin Gishu</item>
+        <item>Transzoia</item>
+        <item>Elgeyo Marakwet</item>
+        <item>Nandi</item>
+        <item>Baringo</item>
+        <item>Laikipia</item>
+        <item>Nakuru</item>
+        <item>Narok</item>
+        <item>Kajiado</item>
+        <item>Kericho</item>
+        <item>Bomet</item>
+        <item>Kakamega</item>
+        <item>Vihiga</item>
+        <item>Bungoma</item>
+        <item>Busia</item>
+        <item>Siaya</item>
+        <item>Kisumu</item>
+        <item>HomaBay</item>
+        <item>Migori</item>
+        <item>Kisii</item>
+        <item>Nyamira</item>
+        <item>Nairobi</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

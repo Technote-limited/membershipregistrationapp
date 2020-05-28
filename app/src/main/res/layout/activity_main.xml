@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             app:navigationIcon="@drawable/ic_arrow_back_white"
-            app:title="@string/app_name"
+            app:title="Register New Members"
             app:titleTextColor="#fff"
 
             />
@@ -214,7 +214,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-                    <EditText
+                   <!-- <EditText
                         android:id="@+id/county"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -228,7 +228,13 @@
                         android:singleLine="true"
                         android:background="@drawable/edit_text_border"
                         android:textColorHint="#C0C0C0"
-                        />
+                        />-->
+                    <com.dev.materialspinner.MaterialSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:id="@+id/material_spinner">
+                    </com.dev.materialspinner.MaterialSpinner>
                     <EditText
                         android:id="@+id/constituency"
                         android:layout_width="fill_parent"

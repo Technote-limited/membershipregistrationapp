@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".OrderHistoryFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/textPreviousOrders"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="3dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginLeft="7dp"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Previous Orders "
+        android:textStyle="bold"
+        android:textSize="20sp"
+
+        />
+
+    <androidx.cardview.widget.CardView
+        android:layout_below="@+id/textPreviousOrders"
+        android:id="@+id/cardview_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="6dp">
+
+        <LinearLayout
+            android:background="#f38f21"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/orderNumber"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                android:padding="10dp"
+                android:text="Order Number : #YL0001 "
+                android:textColor="#fff"
+                />
+            <TextView
+                android:id="@+id/quantity"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:text="Quantity : 200 "
+                android:textColor="#fff"
+                />
+            <TextView
+                android:id="@+id/orderDate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                android:padding="3dp"
+                android:singleLine="true"
+                android:text="Date :  20/04/20 "
+                android:textColor="#fff"
+                />
+
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_below="@+id/cardview_one"
+        android:id="@+id/cardview_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        app:cardCornerRadius="6dp">
+
+        <LinearLayout
+            android:background="#f38f21"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/orderNumber1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                android:padding="10dp"
+                android:text="Order Number : #YL0001 "
+                android:textColor="#fff"
+                />
+            <TextView
+                android:id="@+id/quantity1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:text="Quantity : 200 "
+                android:textColor="#fff"
+                />
+            <TextView
+                android:id="@+id/orderDate1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                android:padding="3dp"
+                android:singleLine="true"
+                android:text="Date :  20/04/20 "
+                android:textColor="#fff"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

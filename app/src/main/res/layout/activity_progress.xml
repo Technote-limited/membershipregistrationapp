@@ -19,12 +19,13 @@
             android:layout_height="56dp"
             android:background="#f38521"
             app:navigationIcon="@drawable/ic_arrow_back_white"
-            app:title="@string/app_name"
+            app:title="My Progress"
             app:titleTextColor="#fff"
             />
     </com.google.android.material.appbar.AppBarLayout>
-    <com.github.mikephil.charting.charts.BarChart
-        android:id = "@+id/BarChart"
-        android:layout_width = "fill_parent"
-        android:layout_height = "fill_parent" />
+<com.github.mikephil.charting.charts.PieChart
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/pieChart">
+</com.github.mikephil.charting.charts.PieChart>
 </LinearLayout>

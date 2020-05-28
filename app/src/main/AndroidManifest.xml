@@ -23,7 +23,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProgressActivity"></activity>
+        <activity android:name=".InventoryManagementActivity"></activity>
+        <activity android:name=".OrderTrackingActivity" />
+        <activity android:name=".OrderStatusActivity" />
+        <activity android:name=".OrderPlacementActivity" />
+        <activity android:name=".CardStatusWornOut" />
+        <activity android:name=".CardStatusStolen" />
+        <activity android:name=".CardStatusLost" />
+        <activity android:name=".ManageCardsActivity" />
+        <activity android:name=".ProgressActivity" />
         <activity android:name=".SearchMembersActivity" />
         <activity android:name=".AgentLoginActivity" />
         <activity android:name=".AgentRegister" />

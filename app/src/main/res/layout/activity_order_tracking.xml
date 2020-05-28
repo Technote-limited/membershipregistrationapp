@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:background="#333366">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:navigationIcon="@drawable/ic_arrow_back_white"
+            app:title="Order Status"
+            app:titleTextColor="#fff"
+
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- <com.dev.materialspinner.MaterialSpinner
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="@dimen/dp_10"
+         android:id="@+id/material_spinner"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintLeft_toLeftOf="parent"
+         app:layout_constraintRight_toRightOf="parent"
+         app:layout_constraintTop_toTopOf="parent">
+
+     </com.dev.materialspinner.MaterialSpinner>-->
+    <com.transferwise.sequencelayout.SequenceLayout
+        android:layout_below="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp">
+
+        <com.transferwise.sequencelayout.SequenceStep
+            android:id="@+id/step1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:anchor="4th May"
+            app:title="Order Placed"/>
+        <com.transferwise.sequencelayout.SequenceStep
+            android:id="@+id/step2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:anchorMaxWidth="@dimen/dp_15"
+            app:anchor="5th May"
+            app:title="Order Received"
+            />
+        <com.transferwise.sequencelayout.SequenceStep
+            android:id="@+id/step3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:active="true"
+            app:anchor="Today"
+            app:anchorMaxWidth="@dimen/dp_15"
+            app:subtitle="Delivery in progress."
+            app:title="Order Confirmed"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Title"/>
+        <com.transferwise.sequencelayout.SequenceStep
+            android:id="@+id/step4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:anchorMaxWidth="@dimen/dp_15"
+            app:title="Delivered"
+            app:anchor="11th May"/>
+
+    </com.transferwise.sequencelayout.SequenceLayout>
+
+
+</RelativeLayout>

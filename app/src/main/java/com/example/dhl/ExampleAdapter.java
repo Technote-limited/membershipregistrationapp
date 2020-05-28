@@ -43,14 +43,14 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
             mCardView = itemView.findViewById(R.id.card_view_agent);
             
 
-          /* itemView.setOnClickListener(v -> {
+           itemView.setOnClickListener(v -> {
                 if(listener!= null){
                     int position = getAdapterPosition();
                     if(position != RecyclerView.NO_POSITION){
                         listener.onItemClick(position);
                     }
                 }
-            });*/
+            });
 
         }
 
@@ -81,10 +81,28 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
                 case 0:
                     intent = new Intent(context,MainActivity.class);
                     context.startActivity(intent);
+                    break;
                 case 1:
                     intent = new Intent(context, SearchMembersActivity.class);
                     context.startActivity(intent);
                     break;
+                case 2:
+                    intent = new Intent(context, ProgressActivity.class);
+                    context.startActivity(intent);
+                    break;
+                case 3:
+                    intent = new Intent(context, ManageCardsActivity.class);
+                    context.startActivity(intent);
+                    break;
+                case 4:
+                    intent = new Intent(context, OrderPlacementActivity.class);
+                    context.startActivity(intent);
+                    break;
+                case 5:
+                    intent = new Intent(context, InventoryManagementActivity.class);
+                    context.startActivity(intent);
+                    break;
+
             }
         });
 

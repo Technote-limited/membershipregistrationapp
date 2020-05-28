@@ -7,18 +7,21 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProgressActivity extends AppCompatActivity {
-    BarChart barChart;
-    BarData barData;
-    BarDataSet barDataSet;
-    ArrayList barEntries;
+    PieChart pieChart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,22 +32,29 @@ public class ProgressActivity extends AppCompatActivity {
         myToolBar.setNavigationOnClickListener(v -> {
             onBackPressed();
         });
-        barChart = findViewById(R.id.BarChart);
+        pieChart = findViewById(R.id.pieChart);
+        pieChart.setUsePercentValues(true);
+        pieChart.setHoleRadius(25f);
+        pieChart.setTransparentCircleRadius(25f);
+        pieChart.animateXY(1400,1400);
         getEntries();
-        barDataSet = new BarDataSet(barEntries, "");
-        barData = new BarData(barDataSet);
-        barChart.setData(barData);
-        barDataSet.setColors(ColorTemplate.LIBERTY_COLORS);
-        barDataSet.setValueTextColor(Color.BLACK);
-        barDataSet.setValueTextSize(18f);
+
+        Description description = new Description();
+        description.setText("Member Registration Data");
+        description.setTextSize(10f);
+        pieChart.setDescription(description); 
+
     }
     private void getEntries() {
-        barEntries = new ArrayList<>();
-        barEntries.add(new BarEntry(2f, 0));
-        barEntries.add(new BarEntry(4f, 1));
-        barEntries.add(new BarEntry(6f, 1));
-        barEntries.add(new BarEntry(8f, 3));
-        barEntries.add(new BarEntry(7f, 4));
-        barEntries.add(new BarEntry(3f, 3));
+        List<PieEntry>value = new ArrayList<>();
+        value.add(new PieEntry(40f,"January"));
+        value.add(new PieEntry(40f,"February"));
+        value.add(new PieEntry(20f,"March"));
+
+        PieDataSet pieDataSet = new PieDataSet(value,"Months");
+        PieData pieData = new PieData(pieDataSet);
+        pieChart.setData(pieData);
+        pieDataSet.setColors(ColorTemplate.PASTEL_COLORS);
+
     }
 }
