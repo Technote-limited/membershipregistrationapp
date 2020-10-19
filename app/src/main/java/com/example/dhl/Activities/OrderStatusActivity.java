@@ -1,12 +1,13 @@
-package com.example.dhl;
+package com.example.dhl.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+
+import com.example.dhl.R;
 
 public class OrderStatusActivity extends AppCompatActivity {
 
@@ -23,7 +24,7 @@ public class OrderStatusActivity extends AppCompatActivity {
 
         Button viewOrderDetails = findViewById(R.id.buttonViewOrderDetails);
         viewOrderDetails.setOnClickListener(v -> {
-            Intent viewDetails = new Intent(OrderStatusActivity.this,OrderTrackingActivity.class);
+            Intent viewDetails = new Intent(OrderStatusActivity.this, OrderTrackingActivity.class);
             startActivity(viewDetails);
         });
     }

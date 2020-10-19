@@ -5,13 +5,19 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.dhl.Activities.InventoryManagementActivity;
+import com.example.dhl.Activities.MainActivity;
+import com.example.dhl.Activities.ManageCardsActivity;
+import com.example.dhl.Activities.OrderPlacementActivity;
+import com.example.dhl.Activities.ProgressActivity;
+import com.example.dhl.Activities.SearchMembersActivity;
 
 import java.util.ArrayList;
 
@@ -79,7 +85,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
             Intent intent;
             switch (position){
                 case 0:
-                    intent = new Intent(context,MainActivity.class);
+                    intent = new Intent(context, MainActivity.class);
                     context.startActivity(intent);
                     break;
                 case 1:

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AgentLoginActivity">
+    tools:context=".Activities.AgentLoginActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -20,7 +20,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="116dp"
         android:layout_marginEnd="8dp"
-        android:text="Welcome Back"
+        android:text="Welcome "
         android:textColor="@android:color/white"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -41,14 +41,14 @@
             android:textColorHint="#fff">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextAgentEmail"
+                android:id="@+id/editTextAgentIdPassport"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
                 android:backgroundTint="@android:color/transparent"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
+                android:hint="ID/Passport"
+                android:inputType="text"
                 android:padding="15dp"
                 />
 
@@ -73,6 +73,14 @@
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -113,26 +121,6 @@
                 android:textStyle="bold" />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            android:layout_marginTop="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_centerInParent="true"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"
-                android:padding="15dp"
-                android:onClick="OpenSignupPage"
-                android:text="Sign up"
-                android:textColor="#fff"
-                android:textSize="18sp"
-                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -143,11 +131,10 @@
                 android:layout_marginEnd="30dp"
                 android:layout_marginRight="30dp"
                 android:padding="15dp"
-                android:text="Forgot Password"
+                android:text="Forgot Credentials"
                 android:textColor="#fff"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-        </RelativeLayout>
     </LinearLayout>
 
 

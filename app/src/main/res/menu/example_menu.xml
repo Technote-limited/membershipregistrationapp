@@ -6,8 +6,8 @@
         android:title="item 1"
         app:showAsAction="ifRoom">
         <menu>
-            <item android:id="@+id/edit"
-                android:title="Edit Details"/>
+            <item android:id="@+id/profile"
+                android:title="Profile Details"/>
             <item android:id="@+id/change_password"
                 android:title="Change Password"/>
             <item android:id="@+id/log_out"

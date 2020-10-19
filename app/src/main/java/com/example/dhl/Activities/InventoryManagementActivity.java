@@ -1,4 +1,4 @@
-package com.example.dhl;
+package com.example.dhl.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -13,6 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.dhl.InventoryFragment;
+import com.example.dhl.OrderHistoryFragment;
+import com.example.dhl.R;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;

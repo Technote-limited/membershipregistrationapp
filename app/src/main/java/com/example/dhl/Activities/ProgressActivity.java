@@ -1,4 +1,4 @@
-package com.example.dhl;
+package com.example.dhl.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.example.dhl.R;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
@@ -41,8 +42,8 @@ public class ProgressActivity extends AppCompatActivity {
 
         Description description = new Description();
         description.setText("Member Registration Data");
-        description.setTextSize(10f);
-        pieChart.setDescription(description); 
+        description.setTextSize(18f);
+        pieChart.setDescription(description);
 
     }
     private void getEntries() {
@@ -51,10 +52,13 @@ public class ProgressActivity extends AppCompatActivity {
         value.add(new PieEntry(40f,"February"));
         value.add(new PieEntry(20f,"March"));
 
+
+
+
         PieDataSet pieDataSet = new PieDataSet(value,"Months");
         PieData pieData = new PieData(pieDataSet);
         pieChart.setData(pieData);
+        pieData.setValueTextSize(12f);
         pieDataSet.setColors(ColorTemplate.PASTEL_COLORS);
-
     }
 }

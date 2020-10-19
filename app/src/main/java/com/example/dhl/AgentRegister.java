@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.dhl.Activities.AgentActivity;
+import com.example.dhl.Activities.AgentLoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,7 +37,7 @@ public class AgentRegister extends AppCompatActivity {
         tvAgentLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(AgentRegister.this,AgentLoginActivity.class);
+                Intent intent=new Intent(AgentRegister.this, AgentLoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -82,7 +84,7 @@ public class AgentRegister extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Registration Unsuccessful, Try again",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    startActivity(new Intent(AgentRegister.this,AgentActivity.class));
+                    startActivity(new Intent(AgentRegister.this, AgentActivity.class));
                 }
             });
             }

@@ -1,4 +1,4 @@
-package com.example.dhl;
+package com.example.dhl.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -7,13 +7,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class CardStatusStolen extends AppCompatActivity {
+import com.example.dhl.R;
+
+public class CardStatusLost extends AppCompatActivity {
     TextView memberNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_card_status_stolen);
+        setContentView(R.layout.activity_card_status_lost);
         Toolbar myToolBar = findViewById(R.id.toolBar);
         setSupportActionBar(myToolBar);
         myToolBar.setNavigationOnClickListener(v -> {
@@ -25,5 +27,6 @@ public class CardStatusStolen extends AppCompatActivity {
         String memberNo = intent.getStringExtra("EditTextMemberNumber");
 
         memberNumber.setText(memberNo);
+
     }
 }

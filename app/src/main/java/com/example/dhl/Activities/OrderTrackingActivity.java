@@ -1,9 +1,11 @@
-package com.example.dhl;
+package com.example.dhl.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+
+import com.example.dhl.R;
 
 public class OrderTrackingActivity extends AppCompatActivity {
 

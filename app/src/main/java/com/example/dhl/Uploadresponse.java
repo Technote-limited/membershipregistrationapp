@@ -5,27 +5,30 @@ import com.google.gson.annotations.SerializedName;
 
 public class Uploadresponse {
 
-    @SerializedName("msg")
-    @Expose
+    @SerializedName("error")
+    private boolean err;
+
+    @SerializedName("message")
     private String msg;
-    @SerializedName("value")
-    @Expose
-    private Boolean value;
+
+    public Uploadresponse(boolean err, String msg) {
+        this.err = err;
+        this.msg = msg;
+    }
+
+    public boolean isErr() {
+        return err;
+    }
 
     public String getMsg() {
         return msg;
     }
 
+    public void setErr(boolean err) {
+        this.err = err;
+    }
+
     public void setMsg(String msg) {
         this.msg = msg;
     }
-
-    public Boolean getValue() {
-        return value;
-    }
-
-    public void setValue(Boolean value) {
-        this.value = value;
-    }
-
 }

@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
-    tools:context=".MainActivity">
+    tools:context=".Activities.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -214,27 +214,31 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-                   <!-- <EditText
-                        android:id="@+id/county"
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:padding="10dip"
+                        android:id="@+id/linear_layout"
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="7dp"
-                        android:layout_marginLeft="7dp"
-                        android:gravity="center"
-                        android:hint="County"
-                        android:padding="10dp"
-                        android:singleLine="true"
-                        android:background="@drawable/edit_text_border"
-                        android:textColorHint="#C0C0C0"
-                        />-->
-                    <com.dev.materialspinner.MaterialSpinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:id="@+id/material_spinner">
-                    </com.dev.materialspinner.MaterialSpinner>
+                        android:layout_height="wrap_content">
+
+                        <!-- Text Label -->
+                        <TextView
+                            android:id="@+id/memberCounty"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dip"
+                            android:text="County:"
+                            android:layout_marginBottom="5dp"
+                            />
+
+                        <!-- Spinner Element -->
+                        <Spinner
+                            android:id="@+id/spinner"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            />
+                    </LinearLayout>
                     <EditText
                         android:id="@+id/constituency"
                         android:layout_width="fill_parent"
@@ -320,295 +324,7 @@
                 android:background="@drawable/button_background"
                 android:text="Submit"
                 />
-            <!--
-<LinearLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/LL_parent"
-android:orientation="vertical"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:layout_gravity="center_horizontal"
-tools:context=".MainActivity">
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#f38521">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolBar"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            app:navigationIcon="@drawable/ic_arrow_back_white"
-            app:title="@string/app_name"
-            app:titleTextColor="#fff"
-
-            />
-    </com.google.android.material.appbar.AppBarLayout>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-    <LinearLayout
-    android:layout_marginTop="20dp"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingTop="10dp">
-
-    &lt;!&ndash; <ImageView
-        android:id="@+id/simpleImageView"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:src="@drawable/qrcodesmall" />&ndash;&gt;
-        <ImageView
-            android:id="@+id/picture_icon"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-             android:src="@drawable/ic_add_a_photo_black_24dp"/>
-
-        <TextView android:id="@+id/TextViewQR"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="6dp"
-            android:layout_marginBottom="10dp"
-            android:textSize="10sp"
-            android:text="Scan QR Code Here"
-            android:background="@drawable/custom_button"
-            android:textColor="#fff"/>
-        <TextView
-            android:id="@+id/member_number"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:hint="Member Number"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:background="@drawable/edit_text_border"
-            android:textColorHint="#C0C0C0"
-            android:drawableLeft="@drawable/ic_perm_identity_green_24dp"
-            />
-
-        <EditText
-            android:id="@+id/id_passport"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:hint="ID or Passport"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:background="@drawable/edit_text_border"
-            android:textColorHint="#C0C0C0"
-            android:drawableLeft="@drawable/ic_perm_identity_green_24dp"
-            />
-
-    <EditText
-        android:id="@+id/surname"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:hint="Surname"
-        android:gravity="center"
-        android:padding="10dp"
-        android:singleLine="true"
-        android:background="@drawable/edit_text_border"
-        android:textColorHint="#C0C0C0"
-        android:inputType="textCapWords"
-        android:drawableLeft="@drawable/ic_person_outline_green_24dp"
-        />
-        <EditText
-            android:id="@+id/first_name"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:hint="First Name"
-            android:gravity="center"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:background="@drawable/edit_text_border"
-            android:textColorHint="#C0C0C0"
-            android:inputType="textCapWords"
-            android:drawableLeft="@drawable/ic_person_outline_green_24dp"
-            />
-        <EditText
-            android:id="@+id/middle_name"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:hint="Middle Name"
-            android:gravity="center"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:background="@drawable/edit_text_border"
-            android:textColorHint="#C0C0C0"
-            android:inputType="textCapWords"
-            android:drawableLeft="@drawable/ic_person_outline_green_24dp"
-            />
-        <EditText
-            android:id="@+id/phone_number"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:hint="Phone Number"
-            android:gravity="center"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:background="@drawable/edit_text_border"
-            android:textColorHint="#C0C0C0"
-            android:drawableLeft="@drawable/ic_phone_green_24dp"
-            />
-        <EditText
-            android:id="@+id/dob"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:hint="Date of Birth"
-            android:gravity="center"
-            android:padding="10dp"
-            android:clickable="true"
-            android:singleLine="true"
-            android:background="@drawable/edit_text_border"
-            android:textColorHint="#C0C0C0"
-            android:drawableLeft="@drawable/ic_phone_green_24dp"
-            />
-        <RadioGroup
-            android:id="@+id/radio_group"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="4dp"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            >
-            <RadioButton
-                android:id="@+id/radio_male"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:checked="true"
-                android:layout_weight="1"
-                android:text="Male"
-                android:textColor="#C0C0C0"
-                />
-            <RadioButton
-                android:id="@+id/radio_female"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:checked="false"
-                android:layout_weight="1"
-                android:text="Female"
-                android:textColor="#C0C0C0"
-                />
-        </RadioGroup>
-
-            <EditText
-                android:id="@+id/county"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:gravity="center"
-                android:hint="County"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:background="@drawable/edit_text_border"
-                android:textColorHint="#C0C0C0"
-                android:drawableLeft="@drawable/ic_location_city_green_24dp"
-                />
-        <EditText
-            android:id="@+id/constituency"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:hint="Constituency"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:background="@drawable/edit_text_border"
-            android:textColorHint="#C0C0C0"
-            android:drawableLeft="@drawable/ic_location_city_green_24dp"
-            />
-        <EditText
-            android:id="@+id/ward"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:hint="Ward"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:background="@drawable/edit_text_border"
-            android:textColorHint="#C0C0C0"
-            android:drawableLeft="@drawable/ic_location_city_green_24dp"
-            />
-
-
-&lt;!&ndash;
-        <EditText
-        android:id="@+id/password"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        android:singleLine="true"
-        android:background="@drawable/edit_text_border"
-        android:textColorHint="#fff"
-        android:drawableLeft="@drawable/ic_lock_outline_green_24dp"
-        />&ndash;&gt;
-
-    &lt;!&ndash; Login Button &ndash;&gt;
-
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/custom_button"
-        android:textColor="#fff"
-        android:text="Register"
-        />
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:paddingTop="20dp"
-        android:orientation="horizontal">
-
-        <TextView android:id="@+id/TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingRight="10dp"
-            android:text="Already a Member?" />
-
-        <TextView android:id="@+id/TextViewLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:text="Login"
-            android:textColor="#009EFD"/>
-    </LinearLayout>
-
-
-    &lt;!&ndash; Link to Login Screen &ndash;&gt;
-
-</LinearLayout>
-
-    </ScrollView>
-
-</LinearLayout>-->
 
 
 

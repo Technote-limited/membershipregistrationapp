@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#333366"
-    tools:context=".SearchMembersActivity">
+    tools:context=".Activities.SearchMembersActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -86,7 +86,7 @@
         android:layout_centerInParent="true">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/scan_icon"
+            android:id="@+id/search_fab_button"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_alignParentRight="true"
@@ -106,6 +106,7 @@
             android:background="@drawable/edit_text_border"
             android:gravity="center"
             android:hint="search by Member Number"
+            android:textColor="@color/white"
             android:padding="10dp"
             android:singleLine="true"
             android:textColorHint="#C0C0C0" />

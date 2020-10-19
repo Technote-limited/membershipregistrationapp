@@ -1,10 +1,12 @@
-package com.example.dhl;
+package com.example.dhl.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.dhl.R;
 
 import gr.net.maroulis.library.EasySplashScreen;
 
@@ -16,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         EasySplashScreen config = new EasySplashScreen(SplashActivity.this)
                 .withFullScreen()
-                .withTargetActivity(AgentRegister.class)
+                .withTargetActivity(AgentLoginActivity.class)
                 .withSplashTimeOut(6000)
                 .withBackgroundColor(Color.parseColor("#333366"))
                 //.withHeaderText("ODM")
