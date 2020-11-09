@@ -48,9 +48,17 @@ public class ProgressActivity extends AppCompatActivity {
     }
     private void getEntries() {
         List<PieEntry>value = new ArrayList<>();
-        value.add(new PieEntry(40f,"January"));
-        value.add(new PieEntry(40f,"February"));
-        value.add(new PieEntry(20f,"March"));
+
+        value.add(new PieEntry(10f,"February"));
+        value.add(new PieEntry(12f,"March"));
+        value.add(new PieEntry(15f,"April"));
+        value.add(new PieEntry(20f,"May"));
+        value.add(new PieEntry(12f,"June"));
+        value.add(new PieEntry(15f,"July"));
+        value.add(new PieEntry(5f,"August"));
+        value.add(new PieEntry(4f,"September"));
+        value.add(new PieEntry(7f,"October"));
+
 
 
 

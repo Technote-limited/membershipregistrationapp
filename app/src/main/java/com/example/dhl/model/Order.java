@@ -1,36 +1,70 @@
 package com.example.dhl.model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Order {
-    @SerializedName("id")
-    private int id;
+
     @SerializedName("order_number")
-    private String order_number;
+    @Expose
+    private Integer orderNumber;
+    @SerializedName("cards")
+    @Expose
+    private String cards;
     @SerializedName("quantity")
+    @Expose
     private String quantity;
     @SerializedName("order_date")
-    private String order_date;
-    @SerializedName("product_code")
-    private String product_code;
+    @Expose
+    private String orderDate;
+    @SerializedName("created_by")
+    @Expose
+    private String createdBy;
+    @SerializedName("status")
+    @Expose
+    private Integer status;
 
-
-    public int getId() {
-        return id;
+    /**
+     * No args constructor for use in serialization
+     *
+     */
+    public Order() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    /**
+     *
+     * @param orderNumber
+     * @param cards
+     * @param quantity
+     * @param orderDate
+     * @param createdBy
+     * @param status
+     */
+    public Order(Integer orderNumber, String cards, String quantity, String orderDate, String createdBy, Integer status) {
+        super();
+        this.orderNumber = orderNumber;
+        this.cards= cards;
+        this.quantity = quantity;
+        this.orderDate = orderDate;
+        this.createdBy = createdBy;
+        this.status = status;
     }
 
-    public String getOrder_number() {
-        return order_number;
+    public Integer getOrderNumber() {
+        return orderNumber;
     }
 
-    public void setOrder_number(String order_number) {
-        this.order_number = order_number;
+    public void setOrderNumber(Integer orderNumber) {
+        this.orderNumber = orderNumber;
     }
 
+    public String getCards() {
+        return cards;
+    }
+
+    public void setCards(String cards) {
+        this.cards = cards;
+    }
 
     public String getQuantity() {
         return quantity;
@@ -40,19 +74,27 @@ public class Order {
         this.quantity = quantity;
     }
 
-    public String getOrder_date() {
-        return order_date;
+    public String getOrderDate() {
+        return orderDate;
     }
 
-    public void setOrder_date(String order_date) {
-        this.order_date = order_date;
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
     }
 
-    public String getProduct_code() {
-        return product_code;
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-    public void setProduct_code(String product_code) {
-        this.product_code = product_code;
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

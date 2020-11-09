@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.dhl">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -15,6 +16,7 @@
     <uses-feature
         android:name="android.hardware.camera.autofocus"
         android:required="false" />
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
 
     <application
         android:allowBackup="true"
@@ -24,7 +26,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.ChangePasswordActivity"></activity>
+        <activity android:name=".Activities.CapturePotraitActivity"
+            ></activity>
+
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="portrait"
+            tools:replace="screenOrientation" />
+        <activity android:name=".Activities.ViewAllMembersActivity" />
+        <activity android:name=".Activities.ChangePasswordActivity" />
         <activity android:name=".Activities.EditAgentProfileActivity" />
         <activity android:name=".Activities.ProfileActivity" />
         <activity android:name=".Activities.Display_Member_Activity" />
@@ -56,18 +66,11 @@
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="barcode" />
 
-        <activity android:name=".BoardingActivity" />
+
         <activity android:name=".camera.Camera" />
-        <activity android:name=".LoginActivity" />
+
         <activity android:name=".Activities.MainActivity">
 
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
         </activity>
     </application>
 

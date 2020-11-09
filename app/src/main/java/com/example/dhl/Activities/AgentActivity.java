@@ -12,7 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.example.dhl.ExampleAdapter;
+import com.example.dhl.adapters.ExampleAdapter;
 import com.example.dhl.ExampleItem;
 import com.example.dhl.R;
 import com.example.dhl.SharedPrefManager;

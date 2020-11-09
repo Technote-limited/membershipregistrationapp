@@ -24,6 +24,8 @@ public class SharedPrefManager {
     private static final String KEY_CONSTITUENCY = "keyconstituency";
     private static final String KEY_WARD = "keyward";
     private static final String KEY_DATECREATED = "keydatecreated";
+    private static final String KEY_ISACTIVE = "keyisactive";
+    private static final String KEY_DATEJOINED = "keydatejoined";
     private static final String KEY_MEMBERPICTURE = "keymemberpicture";
 
     private static SharedPrefManager mInstance;
@@ -47,13 +49,11 @@ public class SharedPrefManager {
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         editor.putInt(KEY_ID, user.getId());
-        editor.putString(KEY_IDPASSPORT, user.getId_passport());
-        editor.putString(KEY_MEMBERNUMBER, user.getMember_number());
-        editor.putString(KEY_IDPASSPORT, user.getId_passport());
-        editor.putString(KEY_MEMBERNUMBER, user.getMember_number());
-        editor.putString(KEY_FIRSTNAME, user.getFirst_name());
+        editor.putString(KEY_IDPASSPORT, user.getIdPassport());
+        editor.putString(KEY_MEMBERNUMBER, user.getMemberNumber());
+        editor.putString(KEY_FIRSTNAME, user.getFirstName());
         editor.putString(KEY_SURNAME, user.getSurname());
-        editor.putString(KEY_MIDDLENAME, user.getMiddle_name());
+        editor.putString(KEY_MIDDLENAME, user.getMiddleName());
         editor.putString(KEY_DOB, user.getDob());
         editor.putString(KEY_GENDER, user.getGender());
         editor.putString(KEY_COUNTY, user.getCounty());
@@ -84,12 +84,17 @@ public class SharedPrefManager {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getInt("id" ,-1) != -1;
     }
+    public boolean isActive() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getBoolean("isactive" ,isActive());
+    }
 
 
 
 
 
-    public Members getUser() {
+
+  /*  public Members getUser() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return new Members(
                 sharedPreferences.getInt(KEY_ID, -1),
@@ -104,10 +109,10 @@ public class SharedPrefManager {
                 sharedPreferences.getString(KEY_COUNTY, null),
                 sharedPreferences.getString(KEY_CONSTITUENCY, null),
                 sharedPreferences.getString(KEY_WARD, null),
-                sharedPreferences.getString(KEY_MEMBERNUMBER, null)
+                sharedPreferences.getString(KEY_DATEJOINED,null)
 
         );
-    }
+    }*/
     public Agent getAgent() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return new Agent(

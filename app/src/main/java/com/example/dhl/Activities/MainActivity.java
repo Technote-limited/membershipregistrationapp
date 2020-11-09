@@ -88,14 +88,14 @@ public class MainActivity extends AppCompatActivity {
         initializeViews();
         displayDatePicker();
         setUpSpinner();
-        //AddData();
+
 
         register.setOnClickListener(v -> {
-          /*  ProgressDialog dialog = new ProgressDialog(getApplicationContext());
+           ProgressDialog dialog = new ProgressDialog(getApplicationContext());
             dialog.setMessage("Saving...");
-            dialog.show();*/
+            dialog.show();
 
-            // saveInSqlite();
+
             saveInMysql();
 
         });
@@ -111,21 +111,13 @@ public class MainActivity extends AppCompatActivity {
         scannIcon.setOnClickListener(v -> {
             IntentIntegrator intentIntegrator = new IntentIntegrator(this);
             intentIntegrator.initiateScan();
+
+
         });
 
 
     }
-  /*  public  void AddData() {
-        register.setOnClickListener(v -> {
-            ProgressDialog dialog = new ProgressDialog(getApplicationContext());
-            dialog.setMessage("Saving...");
-            dialog.show();
 
-         // saveInSqlite();
-          saveInMysql();
-
-        });
-    }*/
     public void saveInMysql(){
             byte[] profile_pic = imageViewtobyte(profile_image);
 
@@ -143,9 +135,7 @@ public class MainActivity extends AppCompatActivity {
             String ward = member_ward.getText().toString();
 
 
-            Call<Uploadresponse> call = ApiClient
-                    .getInstance()
-                    .getApi()
+            Call<Uploadresponse> call = ApiClient.getClient()
                     .createUser(idpassport,membernumber,surname,firstname,middlename,phonenumber,gender,dob,county,constituency,ward,picUrl);
 
 
@@ -239,8 +229,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
 
     }
 

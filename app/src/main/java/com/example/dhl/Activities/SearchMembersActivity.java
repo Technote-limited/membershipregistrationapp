@@ -13,7 +13,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dhl.Activities.Display_Member_Activity;
@@ -38,9 +41,10 @@ public class SearchMembersActivity extends AppCompatActivity {
     SQLiteOpenHelper openHelper;
     SQLiteDatabase db;
     EditText membershipNo;
-    String result="";
     FloatingActionButton searchMember;
-    Retrofit retrofit;
+    TextView viewAllMembers;
+    Members member;
+
 
 
     @Override
@@ -48,16 +52,21 @@ public class SearchMembersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_members);
 
-        openHelper = new DatabaseHelper(this);
-        DatabaseHelper  databaseHelper = new DatabaseHelper(this);
+
         searchMember=findViewById(R.id.search_fab_button);
         membershipNo= findViewById(R.id.member_number);
+        viewAllMembers=findViewById(R.id.TextViewAllMembers);
+
+
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CAMERA}, PackageManager.PERMISSION_GRANTED);
+
+
         Toolbar myToolBar = findViewById(R.id.toolBar);
         setSupportActionBar(myToolBar);
         myToolBar.setNavigationOnClickListener(v -> {
             onBackPressed();
         });
+
 
         CardView scanCardQR = findViewById(R.id.searchByQRCard);
         scanCardQR.setOnClickListener(v -> {
@@ -66,127 +75,55 @@ public class SearchMembersActivity extends AppCompatActivity {
 
         });
 
+
         searchMember.setOnClickListener(v -> {
-            //getMemberData();
+
+            getMemberData();
+
             Intent intent = new Intent(this, Display_Member_Activity.class);
+
             startActivity(intent);
 
-        //fetchFromMysql();
-        //fetchFromSqlite();
-
-
 
         });
 
-    }
-   /* public void fetchFromMysql(){
-
-        Call<List<Members>> call = ApiClient
-                .getInstance()
-                .getApi()
-                .fetchByMemberNumber();
-
-        call.enqueue(new Callback<List<Members>>() {
-            @Override
-            public void onResponse(Call<List<Members>> call, Response<List<Members>> response) {
-                List<Members> membersList = response.body();
-
-                String firstname = membersList.get(0).getFirst_name();
-                String middlename = membersList.get(0).getMiddle_name();
-                String surname = membersList.get(0).getSurname();
-                String id_passport = membersList.get(0).getId_passport();
-                String membernumber = membersList.get(0).getMember_number();
-                String phonenumber = membersList.get(0).getPhone_number();
-                String dob = membersList.get(0).getDob();
-                String gender = membersList.get(0).getGender();
-                String county = membersList.get(0).getCounty();
-                String constituency = membersList.get(0).getConstituency();
-                String ward = membersList.get(0).getWard();
-                String photo = membersList.get(0).getMember_picture();
-
-
-                Intent displayMember = new Intent(getApplicationContext(), Display_Member_Activity.class);
-                displayMember.putExtra("fname",firstname);
-                displayMember.putExtra("mname",middlename);
-                displayMember.putExtra("surnam",surname);
-                displayMember.putExtra("passport",id_passport);
-                displayMember.putExtra("memberno",membernumber);
-                displayMember.putExtra("pnumber",phonenumber);
-                displayMember.putExtra("date",dob);
-                displayMember.putExtra("female",gender);
-                displayMember.putExtra("kiambu",county);
-                displayMember.putExtra("kabete",constituency);
-                displayMember.putExtra("wangige",ward);
-                displayMember.putExtra("png",photo);
-                startActivity(displayMember);
-
-
-
-            }
-
-            @Override
-            public void onFailure(Call<List<Members>> call, Throwable t) {
-
-                Toast.makeText(getApplicationContext(), ""+t.getMessage().toString(), Toast.LENGTH_SHORT).show();
-
-            }
+        viewAllMembers.setOnClickListener(v -> {
+            Intent viewAllIntent = new Intent(this, ViewAllMembersActivity.class);
+            startActivity(viewAllIntent);
         });
 
-
-    }*/
-
-    private void openDetailActivity(String[] data) {
-        Intent intent = new Intent(SearchMembersActivity.this, Display_Member_Activity.class);
-        intent.putExtra("NAME_KEY", data[0]);
-        intent.putExtra("PROPELLANT_KEY", data[1]);
-        intent.putExtra("DESTINATION_KEY", data[2]);
-        intent.putExtra("TECHNOLOGY_EXISTS_KEY", data[3]);
-        intent.putExtra("IMAGE_KEY", data[4]);
-        startActivity(intent);
     }
 
-   /* private void getMemberData() {
-       *//* String first_name = firstName.getText().toString().trim();
-        String middle_name = middleName.getText().toString().trim();
-        String surname = member_surname.getText().toString().trim();
-        String id_passport = idPassport.getText().toString().trim();
+    private void getMemberData() {
         String member_number = membershipNo.getText().toString().trim();
-        String phone_number= phoneNumber.getText().toString().trim();
-        String county = member_county.getText().toString().trim();
-        String constituency = member_constituency.getText().toString().trim();
-        String ward = member_ward.getText().toString().trim();*//*
-       Members members = SharedPrefManager.getInstance(getApplicationContext()).getUser();
 
-        Call<MemberResponse> call = ApiClient.getInstance()
-                .getApi().getMember(
-                        members.getMember_number(),
-                        members.getFirst_name(),members.getMiddle_name(),members.getSurname(),members.getId_passport(),
-                        members.getPhone_number(),members.getCounty(),members.getConstituency(),members.getWard()
-
-                );
+        Call<MemberResponse> call = ApiClient.getClient().getMember(member_number);
 
         call.enqueue(new Callback<MemberResponse>() {
             @Override
             public void onResponse(Call<MemberResponse> call, Response<MemberResponse> response) {
 
-                Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+                member =   response.body().getMember();
+                Log.d("tag", "onResponse: " + member);
 
-                if (!response.body().isError()) {
-                    SharedPrefManager.getInstance(getApplicationContext()).saveUser(response.body().getUser());
 
-                }
             }
 
             @Override
             public void onFailure(Call<MemberResponse> call, Throwable t) {
-
+                Toast.makeText(getApplicationContext(),"Member Number Doesn't Exist",Toast.LENGTH_LONG).show();
             }
         });
-    }*/
+    }
 
 
 
-    public void fetchFromSqlite(){
+
+
+
+
+
+   /* public void fetchFromSqlite(){
         db=getApplicationContext().openOrCreateDatabase("member.db", Context.MODE_PRIVATE,null);
         Cursor cursor = db.rawQuery("SELECT * FROM registration where MemberNo=?", new String[]{result});
 
@@ -212,7 +149,7 @@ public class SearchMembersActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),buffer.toString(),Toast.LENGTH_LONG).show();
 
             }
-        }}
+        }}*/
 
 
     @Override

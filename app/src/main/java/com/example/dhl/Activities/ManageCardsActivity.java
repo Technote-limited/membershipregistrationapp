@@ -151,7 +151,7 @@ public class ManageCardsActivity extends AppCompatActivity {
             // AlertDialog.Builder buffer = new AlertDialog.Builder(this);
         }
     }
-    public void deleteApi(){
+ /*   public void deleteApi(){
             android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(ManageCardsActivity.this);
             builder.setTitle("Are you sure?");
             builder.setMessage("This action will deactivate...");
@@ -159,7 +159,7 @@ public class ManageCardsActivity extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     Members members = SharedPrefManager.getInstance(ManageCardsActivity.this).getUser();
-                    Call<Uploadresponse> call = ApiClient.getInstance().getApi().deleteUser(members.getId());
+                    Call<Uploadresponse> call = ApiClient.getClient().deleteUser(members.getId());
 
                     call.enqueue(new Callback<Uploadresponse>() {
                         @Override
@@ -193,5 +193,5 @@ public class ManageCardsActivity extends AppCompatActivity {
 
             android.app.AlertDialog ad = builder.create();
             ad.show();
-        }
+        }*/
 }

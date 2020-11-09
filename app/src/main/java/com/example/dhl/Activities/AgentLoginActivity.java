@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.dhl.api.Api;
 import com.example.dhl.api.ApiClient;
 import com.example.dhl.LoginResponse;
 import com.example.dhl.R;
@@ -68,8 +69,7 @@ public class AgentLoginActivity extends AppCompatActivity {
             return;
         }
 
-        Call<LoginResponse> call = ApiClient
-                .getInstance().getApi().agentLogin(id_passport, password);
+        Call<LoginResponse> call = ApiClient.getClient().agentLogin(id_passport,password);
 
         call.enqueue(new Callback<LoginResponse>() {
             @Override

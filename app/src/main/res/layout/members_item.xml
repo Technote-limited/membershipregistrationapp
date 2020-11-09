@@ -1,29 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Activities.Display_Member_Activity">
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#f38521">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolBar"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            app:navigationIcon="@drawable/ic_arrow_back_white"
-            app:title="Member  Details"
-            app:titleTextColor="#fff"
-
-            />
-    </com.google.android.material.appbar.AppBarLayout>
-
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="4dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp"
+    app:layout_anchorGravity="center_horizontal"
+    android:id="@+id/card_view_member"
+    android:background="@drawable/edit_text_border">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -177,7 +164,7 @@
                             android:text="ID or Passport Number : "
                             android:layout_centerVertical="true"
                             />
-                        <TextView
+                        <EditText
                             android:id="@+id/id_passport"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -441,12 +428,12 @@
 
 
             <Button
-                android:id="@+id/save_profile_button"
+                android:id="@+id/edit_profile_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="#186918"
-                android:text="Save Changes"
+                android:text="Edit Details"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 />
@@ -454,4 +441,4 @@
 
     </ScrollView>
 
-</LinearLayout>
+</androidx.cardview.widget.CardView>

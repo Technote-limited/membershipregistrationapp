@@ -4,7 +4,7 @@
     <string name="barcode_error_format">"Error reading barcode: %1$s"</string>
     <string name="textview_enter_member_number">Enter Member Number:</string>
 
-    <string-array name="Card_Type">
+    <string-array name="card_types">
         <item>Youth League</item>
         <item>Women League</item>
         <item>Disability League</item>

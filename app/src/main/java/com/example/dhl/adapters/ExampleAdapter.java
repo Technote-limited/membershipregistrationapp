@@ -1,4 +1,4 @@
-package com.example.dhl;
+package com.example.dhl.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +18,8 @@ import com.example.dhl.Activities.ManageCardsActivity;
 import com.example.dhl.Activities.OrderPlacementActivity;
 import com.example.dhl.Activities.ProgressActivity;
 import com.example.dhl.Activities.SearchMembersActivity;
+import com.example.dhl.ExampleItem;
+import com.example.dhl.R;
 
 import java.util.ArrayList;
 

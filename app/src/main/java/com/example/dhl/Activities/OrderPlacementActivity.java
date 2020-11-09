@@ -14,24 +14,37 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dhl.DatabaseHelper;
-import com.example.dhl.OrderAdapter;
+import com.example.dhl.LoginResponse;
+import com.example.dhl.SharedPrefManager;
+import com.example.dhl.Uploadresponse;
+import com.example.dhl.adapters.OrderAdapter;
 import com.example.dhl.R;
+import com.example.dhl.api.ApiClient;
+import com.example.dhl.model.Agent;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
-public class OrderPlacementActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class OrderPlacementActivity extends AppCompatActivity {
+  Agent agent;
     SQLiteOpenHelper openHelper;
     SQLiteDatabase mDatabase;
-    private OrderAdapter mAdapter;
-    Spinner spinner;
+    Spinner card_spinner;
     Button makeOrder;
-    EditText quantity;
+    EditText quantity,editTextCard;
+    TextView orderDate, orderCreatedBy,order_status;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,21 +59,9 @@ public class OrderPlacementActivity extends AppCompatActivity implements Adapter
         myToolBar.setNavigationOnClickListener(v -> {
             onBackPressed();
         });
-         spinner = findViewById(R.id.spinner);
-         makeOrder=findViewById(R.id.button_make_order);
-         quantity = findViewById(R.id.EditTextQuantity);
 
-        spinner.setOnItemSelectedListener(this);
-        List<String> cardType = new ArrayList<String>();
-        cardType.add("Youth League");
-        cardType.add("Women League");
-        cardType.add("Disability League");
-
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,cardType);
-
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(dataAdapter);
-
+        initializeWidgets();
+        setUpSpinner();
 
 
 
@@ -79,37 +80,88 @@ public class OrderPlacementActivity extends AppCompatActivity implements Adapter
 
 
     }
+    public  void initializeWidgets(){
+        card_spinner = findViewById(R.id.spinner_cards);
+        makeOrder=findViewById(R.id.button_make_order);
+        quantity = findViewById(R.id.EditTextQuantity);
+        editTextCard =findViewById(R.id.eT_card_type);
+        order_status = findViewById(R.id.TV_status);
+        orderCreatedBy = findViewById(R.id.TV_createdBy);
+        orderCreatedBy.setText(SharedPrefManager.getInstance(getApplicationContext()).getAgent().getAgentName());
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String item = parent.getItemAtPosition(position).toString();
+        String date_now = new SimpleDateFormat("dd mm, yyyy", Locale.getDefault()).format(new Date());
+        orderDate = findViewById(R.id.TV_order_date);
+        orderDate.setText(date_now);
 
 
     }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
+
+
+
+    private void setUpSpinner(){
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.card_types, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        card_spinner.setAdapter(adapter);
+        card_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                String item = parent.getItemAtPosition(position).toString();
+                editTextCard.setText(item);
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
     }
 
 
     public void makeOrder() {
-        String product = spinner.getSelectedItem().toString();
-        String valueQuantity =quantity.getText().toString();
 
-        //getting the current time for order date
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-        String orderDate = sdf.format(cal.getTime());
+        String cards = editTextCard.getText().toString();
+        String order_quantity = quantity.getText().toString();
+        String order_date= orderDate.getText().toString();
+        String created_by = orderCreatedBy.getText().toString();
 
-          /*  String insertSQL = "INSERT INTO orders \n" +
-                    "( OrderProduct, OrderDate, Quantity)\n" +
-                    "VALUES \n" +
-                    "(?, ?, ?);";
+        int status = 1;
+        order_status.setText(Integer.toString(status));
 
-            mDatabase.execSQL(insertSQL, new String[]{ product,valueQuantity, orderDate});
-*/
-            Toast.makeText(this, " Ordered Successfully", Toast.LENGTH_SHORT).show();
+
+
+
+
+        Call<Uploadresponse> call = ApiClient.getClient()
+                .createOrder(cards,order_quantity,order_date,created_by,status);
+
+
+        call.enqueue(new Callback<Uploadresponse>() {
+            @Override
+            public void onResponse(Call<Uploadresponse> call, Response<Uploadresponse> response) {
+                if (response.code() == 201) {
+
+                    Uploadresponse dr = response.body();
+                    Toast.makeText(OrderPlacementActivity.this, dr.getMsg(), Toast.LENGTH_LONG).show();
+
+                } else if (response.code() == 422) {
+                    Toast.makeText(OrderPlacementActivity.this, "An error Occurred...Try again", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Uploadresponse> call, Throwable t) {
+
+                Toast.makeText(OrderPlacementActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+
+            }
+        });
+
 
 
     }

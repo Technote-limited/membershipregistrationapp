@@ -81,6 +81,7 @@
 
 
     <RelativeLayout
+        android:id="@+id/rLSearchBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true">
@@ -111,6 +112,19 @@
             android:singleLine="true"
             android:textColorHint="#C0C0C0" />
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/TextViewAllMembers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View All Members"
+        android:layout_below="@id/rLSearchBox"
+        android:layout_centerHorizontal="true"
+        android:textSize="23sp"
+        android:textColor="#FF5722"
+        android:textStyle="bold"
+        android:padding="2dp"
+        android:layout_margin="25dp"/>
 
 
 

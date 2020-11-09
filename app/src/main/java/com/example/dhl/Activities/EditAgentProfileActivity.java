@@ -78,11 +78,8 @@ public class EditAgentProfileActivity extends AppCompatActivity {
 
         Agent agent = SharedPrefManager.getInstance(getApplicationContext()).getAgent();
 
-        Call<LoginResponse> call = ApiClient.getInstance()
-                .getApi().updateAgent(
-                        agent.getId_passport(),
-                        member_number,agent_name,phone_number,county,constituency,ward
-                );
+        Call<LoginResponse> call = ApiClient.getClient().updateAgent(agent.getId_passport(),
+                member_number,agent_name,phone_number,county,constituency,ward);
 
         call.enqueue(new Callback<LoginResponse>() {
             @Override

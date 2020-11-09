@@ -1,75 +1,112 @@
 package com.example.dhl.model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Members {
-    @SerializedName("id")
-    private int id;
-    @SerializedName("first_name")
-    private String first_name;
-    @SerializedName("middle_name")
-    private String middle_name;
-    @SerializedName("surname")
-    private String surname;
-    @SerializedName("id_passport")
-    private String id_passport;
-    @SerializedName("member_number")
-    private String member_number;
-    @SerializedName("phone_number")
-    private String phone_number;
-    @SerializedName("dob")
-    private String dob;
-    @SerializedName("gender")
-    private String gender;
-    @SerializedName("county")
-    private String county;
-    @SerializedName("constituency")
-    private String constituency;
-    @SerializedName("ward")
-    private String ward;
-    @SerializedName("member_picture")
-    private String member_picture;
+public class Members  {
 
-    public Members(int id, String first_name, String middle_name, String surname,String id_passport, String member_number, String phone_number,
-                   String dob, String gender, String county, String constituency, String ward, String member_picture) {
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+
+    @SerializedName("first_name")
+    @Expose
+    private String firstName;
+
+    @SerializedName("middle_name")
+    @Expose
+    private String middleName;
+
+    @SerializedName("surname")
+    @Expose
+    private String surname;
+
+    @SerializedName("id_passport")
+    @Expose
+    private String idPassport;
+
+    @SerializedName("member_number")
+    @Expose
+    private String memberNumber;
+
+    @SerializedName("phone_number")
+    @Expose
+    private String phoneNumber;
+
+    @SerializedName("dob")
+    @Expose
+    private String dob;
+
+    @SerializedName("gender")
+    @Expose
+    private String gender;
+
+    @SerializedName("county")
+    @Expose
+    private String county;
+
+    @SerializedName("constituency")
+    @Expose
+    private String constituency;
+
+    @SerializedName("ward")
+    @Expose
+    private String ward;
+
+    @SerializedName("member_picture")
+    @Expose
+    private String memberPicture;
+
+    @SerializedName("date_joined")
+    @Expose
+    private String dateJoined;
+
+
+    public Members() {
+    }
+
+
+    public Members(Integer id, String firstName, String middleName, String surname,String idPassport, String memberNumber, String phoneNumber,
+                   String dob, String gender, String county, String constituency, String ward, String memberPicture, String dateJoined) {
+        super();
         this.id = id;
-        this.first_name = first_name;
-        this.middle_name = middle_name;
+        this.firstName = firstName;
+        this.middleName = middleName;
         this.surname = surname;
-        this.id_passport = id_passport;
-        this.member_number = member_number;
-        this.phone_number = phone_number;
+        this.idPassport = idPassport;
+        this.memberNumber = memberNumber;
+        this.phoneNumber = phoneNumber;
         this.dob = dob;
         this.gender = gender;
         this.county = county;
         this.constituency = constituency;
         this.ward = ward;
-        this.member_picture=member_picture;
+        this.memberPicture= memberPicture;
+        this.dateJoined= dateJoined;
     }
 
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getMiddle_name() {
-        return middle_name;
+    public String getMiddleName() {
+        return middleName;
     }
 
-    public void setMiddle_name(String middle_name) {
-        this.middle_name = middle_name;
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
     }
 
     public String getSurname() {
@@ -80,28 +117,28 @@ public class Members {
         this.surname = surname;
     }
 
-    public String getId_passport() {
-        return id_passport;
+    public String getIdPassport() {
+        return idPassport;
     }
 
-    public void setId_passport(String id_passport) {
-        this.id_passport = id_passport;
+    public void setIdPassport(String idPassport) {
+        this.idPassport = idPassport;
     }
 
-    public String getMember_number() {
-        return member_number;
+    public String getMemberNumber() {
+        return memberNumber;
     }
 
-    public void setMember_number(String member_number) {
-        this.member_number = member_number;
+    public void setMemberNumber(String memberNumber) {
+        this.memberNumber = memberNumber;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getDob() {
@@ -143,11 +180,20 @@ public class Members {
     public void setWard(String ward) {
         this.ward = ward;
     }
-    public String getMember_picture() {
-        return member_picture;
-    }
-    public void setMember_picture(String member_picture) {
-        this.member_picture = member_picture;
+
+    public String getMemberPicture() {
+        return memberPicture;
     }
 
+    public void setMemberPicture(String memberPicture) {
+        this.memberPicture = memberPicture;
+    }
+
+    public String getDateJoined() {
+        return dateJoined;
+    }
+
+    public void setDateJoined(String dateJoined) {
+        this.dateJoined = dateJoined;
+    }
 }

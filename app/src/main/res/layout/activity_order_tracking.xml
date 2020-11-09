@@ -50,14 +50,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:anchor="17th June"
+            app:anchor="30th October"
             app:title="Order Placed"/>
         <com.transferwise.sequencelayout.SequenceStep
             android:id="@+id/step2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:anchorMaxWidth="@dimen/dp_15"
-            app:anchor="17th June"
+            app:anchor="30th October"
             app:title="Order Received"
             />
         <com.transferwise.sequencelayout.SequenceStep
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             app:active="true"
-            app:anchor="Today"
+            app:anchor="Pending"
             app:anchorMaxWidth="@dimen/dp_15"
             app:subtitle="Delivery in progress."
             app:title="Order Confirmed"
@@ -77,7 +77,7 @@
             android:layout_height="wrap_content"
             app:anchorMaxWidth="@dimen/dp_15"
             app:title="Delivered"
-            app:anchor="19th May"/>
+            app:anchor="Pending"/>
 
     </com.transferwise.sequencelayout.SequenceLayout>
 

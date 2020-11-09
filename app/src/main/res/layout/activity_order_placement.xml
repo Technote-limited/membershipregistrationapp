@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_width="fill_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="Card Type:"
@@ -64,9 +64,29 @@
                     android:layout_marginBottom="5dp"/>
 
                 <Spinner
-                    android:id="@+id/spinner"
+                    android:id="@+id/spinner_cards"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    />
+
+                <EditText
+                    android:id="@+id/eT_card_type"
+                    android:background="@drawable/edit_text_border"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="4dp"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:id="@+id/TV_order_date"
+                    android:background="@drawable/edit_text_border"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="4dp"
+                   android:textSize="15sp"
                     />
             </LinearLayout>
             <TextView
@@ -96,6 +116,35 @@
                 android:layout_marginRight="30dp"
                 android:layout_marginEnd="30dp"
                 android:layout_below="@+id/textViewQuantity"
+                />
+
+            <TextView
+                android:id="@+id/TV_createdBy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_border"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:padding="4dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_below="@+id/EditTextQuantity"
+                />
+            <TextView
+                android:id="@+id/TV_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_border"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:padding="4dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_below="@+id/TV_createdBy"
                 />
 
 

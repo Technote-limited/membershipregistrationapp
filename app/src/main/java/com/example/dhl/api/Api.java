@@ -3,11 +3,12 @@ package com.example.dhl.api;
 
 import com.example.dhl.LoginResponse;
 import com.example.dhl.MemberResponse;
+import com.example.dhl.OrderResponse;
 import com.example.dhl.Uploadresponse;
 import com.example.dhl.model.Members;
 import com.example.dhl.model.Order;
 
-import java.util.List;
+
 
 import retrofit2.Call;
 import retrofit2.http.DELETE;
@@ -19,15 +20,13 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
+
 public interface Api {
 
-
-    @GET("get_members")
-    Call<List<Members>> getMembers();
-
     //New Member Registration
-    @FormUrlEncoded
+
      @POST("createuser")
+     @FormUrlEncoded
     Call<Uploadresponse> createUser(
             @Field("id_passport") String id_passport,
             @Field("member_number") String member_number,
@@ -42,6 +41,7 @@ public interface Api {
             @Field("ward") String ward,
             @Field("member_picture") String member_picture
     );
+
 
 //agent logging in
     @FormUrlEncoded
@@ -64,23 +64,11 @@ public interface Api {
 
     );
 
-   /* @GET
-    Call<MemberResponse>getMember(@Query(encoded = false,member_number));*/
 
-  /*  @GET("/getmember")
-   Call<MemberResponse> getMember() ;
-    (
-            @Path("member_number") String member_number,
-            @Field("first_name") String first_name,
-            @Field("middle_name") String middle_name,
-            @Field("surname") String surname,
-            @Field("id_passport") String id_passport,
-            @Field("phone_number") String phone_number,
-            @Field("county") String county,
-            @Field("constituency") String constituency,
-            @Field("ward") String ward
 
-    );*/
+    @GET("getmember")
+    Call<MemberResponse> getMember(@Query("member_number") String member_number);
+
 
     @FormUrlEncoded
     @PUT("updatepassword")
@@ -91,15 +79,30 @@ public interface Api {
     );
 
 
-   // @GET("getmember")
-   // Call<List<Members>> fetchByMemberNumber();
+    @GET("allmembers")
+    Call<MemberResponse> getAllMembers();
+
+    @FormUrlEncoded
+    @POST("createorder")
+    Call<Uploadresponse> createOrder(
+            @Field("cards") String cards,
+            @Field("quantity") String quantity,
+            @Field("order_date") String order_date,
+            @Field("created_by") String created_by,
+            @Field("status") Integer status
+
+
+    );
+
+
+    @GET("allorders")
+    Call<OrderResponse> getAllOrders();
 
 
     @DELETE("deleteuser/{id}")
     Call<Uploadresponse> deleteUser(@Path("id") int id);
 
-    @POST("get_order.php")
-    Call<List<Order>> getOrder();
+
 
 
 

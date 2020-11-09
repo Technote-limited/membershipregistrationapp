@@ -63,7 +63,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
         Agent agent = SharedPrefManager.getInstance(getApplicationContext()).getAgent();
 
-        Call<Uploadresponse> call = ApiClient.getInstance().getApi()
+        Call<Uploadresponse> call = ApiClient.getClient()
                 .updatePassword(currentpassword, newpassword, agent.getId_passport());
 
         call.enqueue(new Callback<Uploadresponse>() {
